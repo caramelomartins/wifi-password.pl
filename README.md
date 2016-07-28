@@ -14,14 +14,10 @@ For fun, I chose Perl.
 Run the following snippet:
 
 ```shell
-curl -o wifi-password.pl https://raw.githubusercontent.com/caramelomartins/wifi-password.pl/master/wifi-password.pl
+curl -o ~/bin/wifi-password.pl https://raw.githubusercontent.com/caramelomartins/wifi-password.pl/master/wifi-password.pl && chmod +x ~/.bin/wifi-password.pl
 ```
-If you wish to run it as a command you will have to move it to a folder in your $PATH and then make it executable:
 
-```shell
-chmod +x wifi-password
-mv wifi-password.pl /path/to/folder/wifi-password.pl
-```
+If you don't have `~/bin/` change it to whatever folder you have in your $PATH.
 
 For now that's all there is to it.
 
@@ -70,7 +66,7 @@ Testing in other distributions would be more than welcome.
 ## TODO
 
 - [x] Error handling.
-- [ ] Easy installation (maybe a bash script).
+- [x] Easy installation (maybe a bash script).
 
 ## Contribute
 Contributions are more than welcome. Just submit a pull request.
