@@ -29,21 +29,10 @@ Get password for current wifi:
 $ wifi-password.pl
 ```
 
-or
-
-```shell
-$ perl wifi-password.pl
-```
-
 Get password for a specific SSID:
 
 ```shell
 $ wifi-password.pl [SSID]
-```
-or
-
-```shell
-$ perl wifi-password.pl [SSID]
 ```
 
 ## Requirements
