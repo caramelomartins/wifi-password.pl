@@ -1,0 +1,5 @@
+language: perl
+perl:
+  - "5.22"
+
+script: "perl -Mstrict -Mdiagnostics  -cw wifi-password.pl";
