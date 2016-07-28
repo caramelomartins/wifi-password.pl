@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-my $version = "0.0.1";
+my $version = "0.0.2";
 my $networkManager ="/etc/NetworkManager/";
 my $ssid = "";
 my $pwd = "";
@@ -18,7 +18,21 @@ sub help()
     print("\n");
 }
 
-if($#ARGV > -1)
+# Check dependencies.
+sub checkDependencies()
+{
+    if(`which perl` eq "") { die "ERROR: perl not installed.\n\n" }
+    elsif(`which nmcli` eq "") { die "ERROR: nmcli not installed.\n\n" }
+    elsif(`which cat` eq "") { die "ERROR: cat not installed.\n\n" }
+    elsif(`which grep` eq "") { die "ERROR: grep not intsalled.\n\n" }
+    elsif(`which sed` eq "") { die "ERROR: sed not installed.\n\n" }
+}
+
+if ( $#ARGV > 0)
+{
+    help(); exit 1;
+}
+elsif($#ARGV > -1)
 {
     if ($ARGV[0] eq "-v") { print "$version\n"; exit 1; }
     elsif ($ARGV[0] eq "-h") { help(); exit 1; }
@@ -27,19 +41,29 @@ if($#ARGV > -1)
 
 print "\n";
 
+checkDependencies();
+
 # Set SSID or use default.
 if( $ssid eq "")
 {
     $ssid = `nmcli -t -f state,connection d | grep connected: | sed "s/^connected://"`;
     # http://stackoverflow.com/questions/3931569/how-can-i-remove-all-whitespaces-and-linebreaks-in-perl
     $ssid =~ s/\s+//g;
+
+    unless($ssid ne "") { die "ERROR: SSID couldn't be found.\n\n"; }
+}
+
+# Verify that a Network connection exists.
+my $path = "$networkManager" . "system-connections/$ssid";
+
+unless( -e $path){
+    die "ERROR: SSID \"$ssid\" is not defined on this machine.\n\n";
 }
 
 # Read from file.
-my $path = "$networkManager" . "system-connections/$ssid";
 my $command = "sudo cat $path | grep psk= | sed \"s/^psk=//\"";
 $pwd = `$command`;
 
-# Print PWD.
+# Print SSID & PWD.
 print "SSID: $ssid\n";
 print "Password: $pwd\n";

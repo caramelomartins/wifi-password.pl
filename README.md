@@ -59,6 +59,7 @@ The script relies on the following dependencies - which are usually pre-installe
 - [cat](http://linux.die.net/man/1/cat)
 - [grep](http://linux.die.net/man/1/grep)
 - [sed](http://linux.die.net/man/1/sed)
+
 ## Support
 
 As of this moment it was only tested in the following distributions:
@@ -68,9 +69,8 @@ Testing in other distributions would be more than welcome.
 
 ## TODO
 
-- Error handling.
-- Easy installation (maybe a bash script).
-- Add more functionality.
+- [x] Error handling.
+- [ ] Easy installation (maybe a bash script).
 
 ## Contribute
 Contributions are more than welcome. Just submit a pull request.
