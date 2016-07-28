@@ -46,11 +46,11 @@ checkDependencies();
 # Set SSID or use default.
 if( $ssid eq "")
 {
-    $ssid = `nmcli -t -f state,connection d | grep connected: | sed "s/^connected://"`;
+    $ssid = `nmcli -t -f type,state,connection d | grep wifi | grep connected: | sed "s/^wifi:connected://"`;
     # http://stackoverflow.com/questions/3931569/how-can-i-remove-all-whitespaces-and-linebreaks-in-perl
     $ssid =~ s/\s+//g;
 
-    unless($ssid ne "") { die "ERROR: SSID couldn't be found.\n\n"; }
+    unless($ssid ne "") { die "ERROR: SSID couldn't be found. Are you connected to wifi?\n\n"; }
 }
 
 # Verify that a Network connection exists.
