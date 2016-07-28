@@ -3,3 +3,5 @@ perl:
   - "5.22"
 
 install: true
+
+script: "perl -Mstrict -Mdiagnostics  -cw wifi-password.pl"
