@@ -1,4 +1,4 @@
-# wifi-password
+# wifi-password.pl
 
 [![Build Status](https://travis-ci.org/caramelomartins/wifi-password.pl.svg?branch=master)](https://travis-ci.org/caramelomartins/wifi-password.pl)
 
