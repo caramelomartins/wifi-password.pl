@@ -2,8 +2,6 @@
 
 [![Build Status](https://travis-ci.org/caramelomartins/wifi-password.pl.svg?branch=master)](https://travis-ci.org/caramelomartins/wifi-password.pl)
 
-**_As of this moment, it will require you to give super user permissions because NetworkManager files need to be accessed and I wasn't able to figure out a way yet to not need it._**
-
 Show your wifi password. Fast and easy. Inspired by [wifi-password](https://github.com/rauchg/wifi-password) - shameless rip-off would be more accurate.
 
 ### Why Perl?
