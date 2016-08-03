@@ -22,7 +22,7 @@ sub checkDependencies() {
     if    ( `which perl` eq "" )  { die "ERROR: perl not installed.\n\n" }
     elsif ( `which nmcli` eq "" ) { die "ERROR: nmcli not installed.\n\n" }
     elsif ( `which cat` eq "" )   { die "ERROR: cat not installed.\n\n" }
-    elsif ( `which grep` eq "" )  { die "ERROR: grep not intsalled.\n\n" }
+    elsif ( `which grep` eq "" )  { die "ERROR: grep not installed.\n\n" }
     elsif ( `which sed` eq "" )   { die "ERROR: sed not installed.\n\n" }
 }
 
@@ -45,7 +45,7 @@ if ( $ssid eq "" ) {
     $ssid =
 `nmcli -t -f type,state,connection d | grep wifi | grep connected: | sed "s/^wifi:connected://"`;
 
-# http://stackoverflow.com/questions/3931569/how-can-i-remove-all-whitespaces-and-linebreaks-in-perl
+    # http://stackoverflow.com/questions/3931569/how-can-i-remove-all-whitespaces-and-linebreaks-in-perl
     $ssid =~ s/\s+//g;
 
     unless ( $ssid ne "" ) {
