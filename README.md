@@ -1,10 +1,11 @@
 # wifi-password.pl
 
-[![Build Status](https://travis-ci.org/caramelomartins/wifi-password.pl.svg?branch=master)](https://travis-ci.org/caramelomartins/wifi-password.pl)
-
 Show your wifi password. Fast and easy. Inspired by
 [wifi-password](https://github.com/rauchg/wifi-password) - shameless rip-off
 would be more accurate.
+
+**Status:**  
+[![Build Status](https://travis-ci.org/caramelomartins/wifi-password.pl.svg?branch=master)](https://travis-ci.org/caramelomartins/wifi-password.pl)
 
 ## Why Perl?
 
