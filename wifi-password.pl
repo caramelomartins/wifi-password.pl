@@ -46,7 +46,7 @@ if ( $ssid eq "" ) {
 `nmcli -t -f type,state,connection d | grep wifi | grep connected: | sed "s/^wifi:connected://"`;
 
     # http://stackoverflow.com/questions/3931569/how-can-i-remove-all-whitespaces-and-linebreaks-in-perl
-    $ssid =~ s/\s+//g;
+    $ssid =~ s/^\s+|\s+$//g;
 
     unless ( $ssid ne "" ) {
         die "ERROR: SSID couldn't be found. Are you connected to wifi?\n\n";
@@ -61,7 +61,7 @@ unless ( -e $path ) {
 }
 
 # Read from file.
-my $command = "sudo cat $path | grep psk= | sed \"s/^psk=//\"";
+my $command = "sudo cat '$path' | grep psk= | sed \"s/^psk=//\"";
 $pwd = `$command`;
 
 # Print SSID & PWD.
